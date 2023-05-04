@@ -1,3 +1,4 @@
+//dequeue
 import java.util.*;
 
 public class DequeueExample {

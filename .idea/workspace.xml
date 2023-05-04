@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b8831d8-8d33-417a-a88d-e9fed59a2f24" name="Default Changelist" comment="" />
+    <list default="true" id="9b8831d8-8d33-417a-a88d-e9fed59a2f24" name="Default Changelist" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/DequeueExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/DequeueExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/javastack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/javastack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DequeueExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DequeueExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javastack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javastack.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,33 +95,37 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.DequeueExample">
-    <configuration name="DequeueExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DequeueExample" />
+  <component name="RunManager" selected="Application.Indexelement">
+    <configuration name="Indexelement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Indexelement" />
       <module name="untitled104" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="untitled104" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="javastack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="javastack" />
+    <configuration name="Missingnumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Missingnumber" />
       <module name="untitled104" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
+    <configuration name="Palindrome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Palindrome" />
+      <module name="untitled104" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Removeduplicates" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Removeduplicates" />
+      <module name="untitled104" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reverseword" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Reverseword" />
       <module name="untitled104" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,10 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DequeueExample" />
-        <item itemvalue="Application.javastack" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Indexelement" />
+        <item itemvalue="Application.Removeduplicates" />
+        <item itemvalue="Application.Reverseword" />
+        <item itemvalue="Application.Palindrome" />
+        <item itemvalue="Application.Missingnumber" />
       </list>
     </recent_temporary>
   </component>
@@ -139,6 +150,14 @@
       <option name="presentableId" value="Default" />
       <updated>1683046475792</updated>
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1683107872881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683107872881</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,5 +170,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
