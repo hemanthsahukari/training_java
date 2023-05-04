@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9b8831d8-8d33-417a-a88d-e9fed59a2f24" name="Default Changelist" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/DequeueExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/DequeueExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/javastack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/javastack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DequeueExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DequeueExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javastack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javastack.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,16 +91,16 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Indexelement">
-    <configuration name="Indexelement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Indexelement" />
+  <component name="RunManager" selected="Application.ExceptionHandling$Solution">
+    <configuration name="ExceptionHandling$Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ExceptionHandling$Solution" />
       <module name="untitled104" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Missingnumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Missingnumber" />
+    <configuration name="Indexelement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Indexelement" />
       <module name="untitled104" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ExceptionHandling$Solution" />
         <item itemvalue="Application.Indexelement" />
         <item itemvalue="Application.Removeduplicates" />
         <item itemvalue="Application.Reverseword" />
         <item itemvalue="Application.Palindrome" />
-        <item itemvalue="Application.Missingnumber" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +153,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683107872881</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1683181385965</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683181385965</updated>
+    </task>
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1683181399192</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683181399192</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
