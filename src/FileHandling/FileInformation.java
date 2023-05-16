@@ -3,7 +3,7 @@ import java.io.File;
 
 public class FileInformation {
     public static void main(String[] args) {
-        File myObj = new File("D:\\FileHandling\\File.txt");
+        File myObj = new File("NewFileF1");
         if(myObj.exists()){
             System.out.println("File name: "+ myObj.getName());
             System.out.println("Absloute path: "+ myObj.getAbsolutePath());
