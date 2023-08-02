@@ -1,0 +1,899 @@
+library-management-vue3/
+|-- public/
+|   |-- index.html
+|
+|-- src/
+|   |-- assets/
+|   |   |-- logo.png
+|   |
+|   |-- components/
+|   |   |-- App.vue
+|   |   |-- Book/
+|   |   |   |-- BookForm.vue
+|   |   |   |-- BookItem.vue
+|   |   |   |-- BookList.vue
+|   |   |
+|   |   |-- Author/
+|   |   |   |-- AuthorForm.vue
+|   |   |   |-- AuthorItem.vue
+|   |   |   |-- AuthorList.vue
+|   |   |
+|   |   |-- Borrowedbook/
+|   |   |   |-- BorrowedbookForm.vue
+|   |   |   |-- BorrowedbookItem.vue
+|   |   |   |-- BorrowedbookList.vue
+|   |   |
+|   |   |-- Student/
+|   |   |   |-- StudentForm.vue
+|   |   |   |-- StudentItem.vue
+|   |   |   |-- StudentList.vue
+|   |   |
+|   |   |-- Auth/
+|   |   |   |-- Login.vue
+|   |   |   |-- Signup.vue
+|   |
+|   |-- router/
+|   |   |-- index.js
+|   |
+|   |-- store/
+|   |   |-- auth.js
+|   |
+|   |-- services/
+|   |   |-- bookService.js
+|   |   |-- authorService.js
+|   |   |-- borrowedbookService.js
+|   |   |-- studentService.js
+|   |   |-- authService.js
+|   |
+|   |-- main.js
+|
+|-- package.json
+|-- vue.config.js
+|-- .gitignore
+
+
+
+
+src/main.js-->
+
+import { createApp } from 'vue';
+import App from './components/App.vue';
+import router from './router';
+import store from './store';
+
+const app = createApp(App);
+app.use(router);
+app.use(store);
+app.mount('#app');
+
+
+src/router/index.js:-->
+
+
+
+import { createRouter, createWebHistory } from 'vue-router';
+
+import BookList from '../components/Book/BookList.vue';
+import BookForm from '../components/Book/BookForm.vue';
+import BookItem from '../components/Book/BookItem.vue';
+
+import AuthorList from '../components/Author/AuthorList.vue';
+import AuthorForm from '../components/Author/AuthorForm.vue';
+import AuthorItem from '../components/Author/AuthorItem.vue';
+
+import BorrowedbookList from '../components/Borrowedbook/BorrowedbookList.vue';
+import BorrowedbookForm from '../components/Borrowedbook/BorrowedbookForm.vue';
+import BorrowedbookItem from '../components/Borrowedbook/BorrowedbookItem.vue';
+
+import StudentList from '../components/Student/StudentList.vue';
+import StudentForm from '../components/Student/StudentForm.vue';
+import StudentItem from '../components/Student/StudentItem.vue';
+
+import Login from '../components/Auth/Login.vue';
+import Signup from '../components/Auth/Signup.vue';
+
+const routes = [
+  { path: '/', redirect: '/books' },
+  { path: '/books', name: 'BookList', component: BookList },
+  { path: '/books/add', name: 'AddBook', component: BookForm },
+  { path: '/books/edit/:id', name: 'EditBook', component: BookForm },
+  { path: '/books/:id', name: 'BookItem', component: BookItem },
+  { path: '/authors', name: 'AuthorList', component: AuthorList },
+  { path: '/authors/add', name: 'AddAuthor', component: AuthorForm },
+  { path: '/authors/edit/:id', name: 'EditAuthor', component: AuthorForm },
+  { path: '/authors/:id', name: 'AuthorItem', component: AuthorItem },
+  { path: '/borrowed-books', name: 'BorrowedbookList', component: BorrowedbookList },
+  { path: '/borrowed-books/add', name: 'AddBorrowedbook', component: BorrowedbookForm },
+  { path: '/borrowed-books/edit/:id', name: 'EditBorrowedbook', component: BorrowedbookForm },
+  { path: '/borrowed-books/:id', name: 'BorrowedbookItem', component: BorrowedbookItem },
+  { path: '/students', name: 'StudentList', component: StudentList },
+  { path: '/students/add', name: 'AddStudent', component: StudentForm },
+  { path: '/students/edit/:id', name: 'EditStudent', component: StudentForm },
+  { path: '/students/:id', name: 'StudentItem', component: StudentItem },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/signup', name: 'Signup', component: Signup },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
+
+
+
+
+src/services/bookService.js:--->
+
+
+import axios from 'axios';
+
+const BASE_URL = 'http://your-backend-url/api'; // Replace this with your backend API URL
+
+export default {
+  getAllBooks() {
+    return axios.get(`${BASE_URL}/books`);
+  },
+
+  getBookById(bookId) {
+    return axios.get(`${BASE_URL}/books/${bookId}`);
+  },
+
+  addBook(bookData) {
+    return axios.post(`${BASE_URL}/books`, bookData);
+  },
+
+  updateBook(bookId, bookData) {
+    return axios.put(`${BASE_URL}/books/${bookId}`, bookData);
+  },
+
+  deleteBook(bookId) {
+    return axios.delete(`${BASE_URL}/books/${bookId}`);
+  },
+};
+
+
+src/services/authorService.js:--->
+
+import axios from 'axios';
+
+const BASE_URL = 'http://your-backend-url/api'; // Replace this with your backend API URL
+
+export default {
+  getAllAuthors() {
+    return axios.get(`${BASE_URL}/authors`);
+  },
+
+  getAuthorById(authorId) {
+    return axios.get(`${BASE_URL}/authors/${authorId}`);
+  },
+
+  addAuthor(authorData) {
+    return axios.post(`${BASE_URL}/authors`, authorData);
+  },
+
+  updateAuthor(authorId, authorData) {
+    return axios.put(`${BASE_URL}/authors/${authorId}`, authorData);
+  },
+
+  deleteAuthor(authorId) {
+    return axios.delete(`${BASE_URL}/authors/${authorId}`);
+  },
+};
+
+
+src/services/borrowedbookService.js:-->
+import axios from 'axios';
+
+const BASE_URL = 'http://your-backend-url/api'; // Replace this with your backend API URL
+
+export default {
+  getAllBorrowedBooks() {
+    return axios.get(`${BASE_URL}/borrowed-books`);
+  },
+
+  getBorrowedBookById(borrowedBookId) {
+    return axios.get(`${BASE_URL}/borrowed-books/${borrowedBookId}`);
+  },
+
+  addBorrowedBook(borrowedBookData) {
+    return axios.post(`${BASE_URL}/borrowed-books`, borrowedBookData);
+  },
+
+  updateBorrowedBook(borrowedBookId, borrowedBookData) {
+    return axios.put(`${BASE_URL}/borrowed-books/${borrowedBookId}`, borrowedBookData);
+  },
+
+  deleteBorrowedBook(borrowedBookId) {
+    return axios.delete(`${BASE_URL}/borrowed-books/${borrowedBookId}`);
+  },
+};
+
+src/services/studentService.js:-->
+import axios from 'axios';
+
+const BASE_URL = 'http://your-backend-url/api'; // Replace this with your backend API URL
+
+export default {
+  getAllStudents() {
+    return axios.get(`${BASE_URL}/students`);
+  },
+
+  getStudentById(studentId) {
+    return axios.get(`${BASE_URL}/students/${studentId}`);
+  },
+
+  addStudent(studentData) {
+    return axios.post(`${BASE_URL}/students`, studentData);
+  },
+
+  updateStudent(studentId, studentData) {
+    return axios.put(`${BASE_URL}/students/${studentId}`, studentData);
+  },
+
+  deleteStudent(studentId) {
+    return axios.delete(`${BASE_URL}/students/${studentId}`);
+  },
+};
+
+
+
+
+BookList.vue:---->
+<template>
+  <div>
+    <h2>Book List</h2>
+    <ul>
+      <li v-for="book in books" :key="book.id">
+        {{ book.title }} by {{ book.author }}
+        <button @click="editBook(book)">Edit</button>
+        <button @click="deleteBook(book.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import bookService from '../../services/bookService';
+
+export default {
+  data() {
+    return {
+      books: [],
+    };
+  },
+  methods: {
+    async fetchBooks() {
+      const response = await bookService.getAllBooks();
+      this.books = response.data;
+    },
+
+    async editBook(book) {
+      // Implement edit functionality
+    },
+
+    async deleteBook(bookId) {
+      // Implement delete functionality
+    },
+  },
+  created() {
+    this.fetchBooks();
+  },
+};
+</script>
+
+
+BookForm.vue:-->
+<template>
+  <form @submit.prevent="saveBook">
+    <label>Title:</label>
+    <input type="text" v-model="title" />
+
+    <label>Author:</label>
+    <input type="text" v-model="author" />
+
+    <label>Genre:</label>
+    <input type="text" v-model="genre" />
+
+    <button type="submit">Save</button>
+  </form>
+</template>
+
+<script>
+import bookService from '../../services/bookService';
+
+export default {
+  data() {
+    return {
+      title: '',
+      author: '',
+      genre: '',
+    };
+  },
+  methods: {
+    async saveBook() {
+      const bookData = {
+        title: this.title,
+        author: this.author,
+        genre: this.genre,
+        available: true, // Set the 'available' status to true by default
+      };
+
+      // Call the appropriate API method based on whether this is an add or edit operation
+      if (this.$route.params.id) {
+        await bookService.updateBook(this.$route.params.id, bookData);
+      } else {
+        await bookService.addBook(bookData);
+      }
+
+      // After successful save, redirect to the book list page
+      this.$router.push({ name: 'BookList' });
+    },
+  },
+  created() {
+    // If this is an edit operation, fetch the book details to populate the form
+    if (this.$route.params.id) {
+      bookService.getBookById(this.$route.params.id).then((response) => {
+        const book = response.data;
+        this.title = book.title;
+        this.author = book.author;
+        this.genre = book.genre;
+      });
+    }
+  },
+};
+</script>
+
+
+BookItem.vue:-->
+<template>
+  <div>
+    <h2>{{ book.title }}</h2>
+    <p>Author: {{ book.author }}</p>
+    <p>Genre: {{ book.genre }}</p>
+    <p v-if="book.available">Available</p>
+    <p v-else>Not Available</p>
+  </div>
+</template>
+
+<script>
+import bookService from '../../services/bookService';
+
+export default {
+  data() {
+    return {
+      book: null,
+    };
+  },
+  methods: {
+    async fetchBook() {
+      const bookId = this.$route.params.id;
+      const response = await bookService.getBookById(bookId);
+      this.book = response.data;
+    },
+  },
+  created() {
+    this.fetchBook();
+  },
+};
+</script>
+
+
+
+AuthorList.vue:-->
+
+<template>
+  <div>
+    <h2>Author List</h2>
+    <ul>
+      <li v-for="author in authors" :key="author.id">
+        {{ author.name }}
+        <button @click="editAuthor(author)">Edit</button>
+        <button @click="deleteAuthor(author.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import authorService from '../../services/authorService';
+
+export default {
+  data() {
+    return {
+      authors: [],
+    };
+  },
+  methods: {
+    async fetchAuthors() {
+      const response = await authorService.getAllAuthors();
+      this.authors = response.data;
+    },
+
+    async editAuthor(author) {
+      // Implement edit functionality
+    },
+
+    async deleteAuthor(authorId) {
+      // Implement delete functionality
+    },
+  },
+  created() {
+    this.fetchAuthors();
+  },
+};
+</script>
+
+
+AuthorForm.vue:-->
+
+<template>
+  <form @submit.prevent="saveAuthor">
+    <label>Name:</label>
+    <input type="text" v-model="name" />
+
+    <button type="submit">Save</button>
+  </form>
+</template>
+
+<script>
+import authorService from '../../services/authorService';
+
+export default {
+  data() {
+    return {
+      name: '',
+    };
+  },
+  methods: {
+    async saveAuthor() {
+      const authorData = {
+        name: this.name,
+      };
+
+      // Call the appropriate API method based on whether this is an add or edit operation
+      if (this.$route.params.id) {
+        await authorService.updateAuthor(this.$route.params.id, authorData);
+      } else {
+        await authorService.addAuthor(authorData);
+      }
+
+      // After successful save, redirect to the author list page
+      this.$router.push({ name: 'AuthorList' });
+    },
+  },
+  created() {
+    // If this is an edit operation, fetch the author details to populate the form
+    if (this.$route.params.id) {
+      authorService.getAuthorById(this.$route.params.id).then((response) => {
+        const author = response.data;
+        this.name = author.name;
+      });
+    }
+  },
+};
+</script>
+
+
+AuthorItem.vue:-->
+<template>
+  <div>
+    <h2>{{ author.name }}</h2>
+  </div>
+</template>
+
+<script>
+import authorService from '../../services/authorService';
+
+export default {
+  data() {
+    return {
+      author: null,
+    };
+  },
+  methods: {
+    async fetchAuthor() {
+      const authorId = this.$route.params.id;
+      const response = await authorService.getAuthorById(authorId);
+      this.author = response.data;
+    },
+  },
+  created() {
+    this.fetchAuthor();
+  },
+};
+</script>
+
+
+BorrowedbookList.vue:-->
+<template>
+  <div>
+    <h2>Borrowed Book List</h2>
+    <ul>
+      <li v-for="borrowedBook in borrowedBooks" :key="borrowedBook.id">
+        Book: {{ borrowedBook.book.title }} ({{ borrowedBook.book.author }})
+        Student: {{ borrowedBook.student.name }}
+        Borrow Date: {{ borrowedBook.borrowDate }}
+        Return Date: {{ borrowedBook.returnDate }}
+        <button @click="editBorrowedBook(borrowedBook)">Edit</button>
+        <button @click="deleteBorrowedBook(borrowedBook.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import borrowedbookService from '../../services/borrowedbookService';
+
+export default {
+  data() {
+    return {
+      borrowedBooks: [],
+    };
+  },
+  methods: {
+    async fetchBorrowedBooks() {
+      const response = await borrowedbookService.getAllBorrowedBooks();
+      this.borrowedBooks = response.data;
+    },
+
+    async editBorrowedBook(borrowedBook) {
+      // Implement edit functionality
+    },
+
+    async deleteBorrowedBook(borrowedBookId) {
+      // Implement delete functionality
+    },
+  },
+  created() {
+    this.fetchBorrowedBooks();
+  },
+};
+</script>
+
+
+
+BorrowedbookForm.vue:-->
+
+<template>
+  <form @submit.prevent="saveBorrowedBook">
+    <label>Book:</label>
+    <!-- Implement a select input to choose a book from the available books -->
+
+    <label>Student:</label>
+    <!-- Implement a select input to choose a student from the available students -->
+
+    <label>Borrow Date:</label>
+    <input type="date" v-model="borrowDate" />
+
+    <label>Return Date:</label>
+    <input type="date" v-model="returnDate" />
+
+    <button type="submit">Save</button>
+  </form>
+</template>
+
+<script>
+import borrowedbookService from '../../services/borrowedbookService';
+
+export default {
+  data() {
+    return {
+      // Implement data properties to store selected book, student, and form inputs (borrowDate, returnDate)
+    };
+  },
+  methods: {
+    async saveBorrowedBook() {
+      const borrowedBookData = {
+        // Populate borrowedBookData with selected book, student, borrowDate, and returnDate
+      };
+
+      // Call the appropriate API method based on whether this is an add or edit operation
+      if (this.$route.params.id) {
+        await borrowedbookService.updateBorrowedBook(this.$route.params.id, borrowedBookData);
+      } else {
+        await borrowedbookService.addBorrowedBook(borrowedBookData);
+      }
+
+      // After successful save, redirect to the borrowed book list page
+      this.$router.push({ name: 'BorrowedbookList' });
+    },
+  },
+  created() {
+    // Implement code to fetch and populate available books and students for select inputs
+  },
+};
+</script>
+
+BorrowedbookItem.vue:-->
+<template>
+  <div>
+    <h2>{{ borrowedBook.book.title }}</h2>
+    <p>Student: {{ borrowedBook.student.name }}</p>
+    <p>Borrow Date: {{ borrowedBook.borrowDate }}</p>
+    <p>Return Date: {{ borrowedBook.returnDate }}</p>
+    <p v-if="borrowedBook.returned">Returned</p>
+    <p v-else>Not Returned</p>
+    <p v-if="borrowedBook.fineCollected">Fine Collected</p>
+    <p v-else>Fine Not Collected</p>
+  </div>
+</template>
+
+<script>
+import borrowedbookService from '../../services/borrowedbookService';
+
+export default {
+  data() {
+    return {
+      borrowedBook: null,
+    };
+  },
+  methods: {
+    async fetchBorrowedBook() {
+      const borrowedBookId = this.$route.params.id;
+      const response = await borrowedbookService.getBorrowedBookById(borrowedBookId);
+      this.borrowedBook = response.data;
+    },
+  },
+  created() {
+    this.fetchBorrowedBook();
+  },
+};
+</script>
+
+
+StudentList.vue:-->
+<template>
+  <div>
+    <h2>Student List</h2>
+    <ul>
+      <li v-for="student in students" :key="student.id">
+        {{ student.name }}
+        <button @click="editStudent(student)">Edit</button>
+        <button @click="deleteStudent(student.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import studentService from '../../services/studentService';
+
+export default {
+  data() {
+    return {
+      students: [],
+    };
+  },
+  methods: {
+    async fetchStudents() {
+      const response = await studentService.getAllStudents();
+      this.students = response.data;
+    },
+
+    async editStudent(student) {
+      // Implement edit functionality
+    },
+
+    async deleteStudent(studentId) {
+      // Implement delete functionality
+    },
+  },
+  created() {
+    this.fetchStudents();
+  },
+};
+</script>
+
+
+
+StudentForm.vue:-->
+<template>
+  <form @submit.prevent="saveStudent">
+    <label>Name:</label>
+    <input type="text" v-model="name" />
+
+    <button type="submit">Save</button>
+  </form>
+</template>
+
+<script>
+import studentService from '../../services/studentService';
+
+export default {
+  data() {
+    return {
+      name: '',
+    };
+  },
+  methods: {
+    async saveStudent() {
+      const studentData = {
+        name: this.name,
+      };
+
+      // Call the appropriate API method based on whether this is an add or edit operation
+      if (this.$route.params.id) {
+        await studentService.updateStudent(this.$route.params.id, studentData);
+      } else {
+        await studentService.addStudent(studentData);
+      }
+
+      // After successful save, redirect to the student list page
+      this.$router.push({ name: 'StudentList' });
+    },
+  },
+  created() {
+    // If this is an edit operation, fetch the student details to populate the form
+    if (this.$route.params.id) {
+      studentService.getStudentById(this.$route.params.id).then((response) => {
+        const student = response.data;
+        this.name = student.name;
+      });
+    }
+  },
+};
+</script>
+
+
+StudentItem.vue:--->
+
+<template>
+  <div>
+    <h2>{{ student.name }}</h2>
+    <p>Number of Borrowed Books: {{ student.borrowedBooks.length }}</p>
+    <p>Fine Amount: {{ student.fineAmount }}</p>
+  </div>
+</template>
+
+<script>
+import studentService from '../../services/studentService';
+
+export default {
+  data() {
+    return {
+      student: null,
+    };
+  },
+  methods: {
+    async fetchStudent() {
+      const studentId = this.$route.params.id;
+      const response = await studentService.getStudentById(studentId);
+      this.student = response.data;
+    },
+  },
+  created() {
+    this.fetchStudent();
+  },
+};
+</script>
+
+
+
+src/components/Auth/Login.vue:-->
+<template>
+  <div>
+    <h2>Login</h2>
+    <form @submit.prevent="loginUser">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" v-model="username" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" v-model="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+    };
+  },
+  methods: {
+    loginUser() {
+      const userData = {
+        username: this.username,
+        password: this.password,
+      };
+
+      this.$store.dispatch('login', userData)
+        .then(() => {
+          this.$router.push('/');
+        })
+        .catch(error => {
+          console.error('Login error:', error);
+          // Handle login error (e.g., show an error message)
+        });
+    },
+  },
+};
+</script>
+
+
+src/components/Auth/Signup.vue:-->
+
+<template>
+  <div>
+    <h2>Signup</h2>
+    <form @submit.prevent="signupUser">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" v-model="username" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" v-model="password" required />
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" v-model="confirmPassword" required />
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '',
+    };
+  },
+  methods: {
+    signupUser() {
+      if (this.password !== this.confirmPassword) {
+        // Handle password mismatch (e.g., show an error message)
+        return;
+      }
+
+      const userData = {
+        username: this.username,
+        password: this.password,
+      };
+
+      this.$store.dispatch('signup', userData)
+        .then(() => {
+          this.$router.push('/');
+        })
+        .catch(error => {
+          console.error('Signup error:', error);
+          // Handle signup error (e.g., show an error message)
+        });
+    },
+  },
+};
+</script>
+
+
+authService.js:-->
+import axios from 'axios';
+
+const BASE_URL = 'http://your-backend-url/api'; // Replace this with your backend API URL
+
+export default {
+  login(userData) {
+    return axios.post(`${BASE_URL}/login`, userData);
+  },
+
+  signup(userData) {
+    return axios.post(`${BASE_URL}/signup`, userData);
+  },
+
+  logout() {
+    return axios.post(`${BASE_URL}/logout`);
+  },
+};
+
+
+
